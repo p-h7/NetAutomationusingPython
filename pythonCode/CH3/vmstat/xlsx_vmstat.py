@@ -9,18 +9,23 @@ p = Popen(cmd, shell=True, stdout=PIPE)
 #print(cmd)
 
 (ret, err) = p.communicate()
+print(type(ret))
 ret= str(ret)
+print(type(ret))
 
 workbook = Workbook('vmstat.xlsx')
 worksheet = workbook.add_worksheet()
 
 # 데이터를 줄 단위로 만듭니다.
-rows = ret.split("\n")
-print(rows)
+#rows = ret.split("\n")
+rows = ret.split("\\")
+#print(rows)
 for row_idx, row in enumerate(rows) :
+    print(row_idx, row)
     columns = row.split()
-    print(columns)
+    #print(columns)
     for col_idx, col in enumerate(columns) :
+        print('row:', row_idx, 'col:', col_idx)
         worksheet.write(row_idx, col_idx, col)
 
 workbook.close()
