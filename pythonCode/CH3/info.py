@@ -3,6 +3,7 @@
 
 # platform 모듈은 파이썬 코드를 실행하고 있는 운영체제의 환경 정보를 알려줍니다.
 # multiprocessing는 CPU의 개수를 알기 위해 사용합니다.
+
 import platform
 import multiprocessing
 
