@@ -11,7 +11,8 @@ ret= str(ret)
 
 workbook = Workbook('vmstat_merge_header.xlsx')
 worksheet = workbook.add_worksheet()
-rows = ret.split("\n")
+#rows = ret.split("\n")
+rows = ret.split("\\")
 
 for row_idx, row in enumerate(rows) :
     if row_idx == 0 :               # 첫 번째 헤더는 엑셀 파일에 쓰지 않음
