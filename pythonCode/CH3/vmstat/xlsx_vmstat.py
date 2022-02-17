@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/bin/env python3
 #-*- coding: utf-8 -*-
 
 from subprocess import *
@@ -7,6 +7,7 @@ from xlsxwriter import *
 cmd = "vmstat 1 5 | awk '{now=strftime(\"%Y-%m-%d %T \"); print now $0}'"
 p = Popen(cmd, shell=True, stdout=PIPE)
 (ret, err) = p.communicate()
+ret= str(ret)
 
 workbook = Workbook('vmstat.xlsx')
 worksheet = workbook.add_worksheet()

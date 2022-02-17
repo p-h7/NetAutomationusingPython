@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/bin/env python3
 #-*- coding: utf-8 -*-
 
 from subprocess import *
@@ -7,6 +7,7 @@ from xlsxwriter import *
 cmd = "vmstat 1 5 | awk '{now=strftime(\"%Y-%m-%d %T \"); print now $0}'"
 p = Popen(cmd, shell=True, stdout=PIPE)
 (ret, err) = p.communicate()
+ret= str(ret)
 
 workbook = Workbook('vmstat_merge_header.xlsx')
 worksheet = workbook.add_worksheet()
@@ -30,4 +31,4 @@ worksheet.merge_range("M1:N1", "system", merge_format)      # 하위 열 2개
 worksheet.merge_range("O1:S1", "cpu", merge_format)         # 하위 열 5개
 
 workbook.close()
-print "vmstat_merge_header.xlsx 파일에 저장됐습니다."
+print ("vmstat_merge_header.xlsx 파일에 저장됐습니다.")
