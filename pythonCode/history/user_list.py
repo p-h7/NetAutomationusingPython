@@ -18,7 +18,7 @@ def get_accounts():
     
     cmd= "awk -F':' -v 'min=%s'" % min_u
     cmd= cmd + " -v 'max=%s'" % max_u
-    cmd= cmd + " '{ if ($3 > min && &3 <= max) print &1}' /etc/passwd"
+    cmd= cmd + " '{ if ($3 >= min && $3 <= max) print $1}' /etc/passwd"
     return exec_cmd(cmd).split()
 
 if __name__ == '__main__':

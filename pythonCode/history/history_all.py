@@ -30,7 +30,7 @@ def history(account):
         timestamp= timestamp.replace("#", "")
         date= str(datetime.fromtimestamp(float(timestamp)))
         history_list.append((date, cmd))
-    return History_list
+    return history_list
 
 if __name__ == '__main__':
     accouts= get_accounts()
