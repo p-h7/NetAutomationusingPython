@@ -1,4 +1,4 @@
-#! /bin/env python3
+#!/bin/env python3
 #-*- coding: utf-8 -*-
 
 from user_list import *
@@ -35,12 +35,12 @@ def history(account):
 if __name__ == '__main__':
     accouts= get_accounts()
     for account in accouts:        
-        print "계정 : ", account
+        print("계정 : ", account)
         history_list= history(account)
         
         if len(history_list) == 0:
             print("\t 기록된 이력이 없음")
             for h in history_list:
-                print "\t %s \t %s" % h
-            print "-" * 70
+                print( "\t %s \t %s" % h)
+            print("-" * 70)
             
