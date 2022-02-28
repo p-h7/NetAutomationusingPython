@@ -16,30 +16,32 @@ def remove_num(string):
 
 def history(account):
     ret= exec_cmd("sudo -H -u %s bash -i -c 'history -r; history'" % account)
-    # print(ret)
-    ret_split = ret.strip().split("\n")
-    
-    # print(ret_split)
+    print(ret)
+    print(type(ret))
+    ret_split = list(ret.strip("\n"))
+    print(ret_split)
+    print(type(ret))
     i= len(ret_split) - 1
     history_list= []
     while i > 0:
-        # print(ret_split[i])
+        print(ret_split[i])
         cmd= ret_split[i].strip()
-        # print(cmd)
+        print(cmd)
         # cmd= ret_split.strip()
-        timestamp = ret_split[i-1]
+        # timestamp = ret_split[i-1]
         # print(timestamp)
-        i= i-2
+        # i= i-2
         
-        if timestamp.find("#") < 0:
-            # continue
-            break
+        # if timestamp.find("#") < 0:
+        #     # continue
+        #     break
         cmd= remove_num(cmd)
-        timestamp= remove_num(timestamp)
+        # timestamp= remove_num(timestamp)
         
-        timestamp= timestamp.replace("#", "")
-        date= str(datetime.fromtimestamp(float(timestamp)))
-        history_list.append((date, cmd))
+        # timestamp= timestamp.replace("#", "")
+        # date= str(datetime.fromtimestamp(float(timestamp)))
+        # history_list.append((date, cmd))
+        history_list.append(cmd)
     return history_list
 
 if __name__ == '__main__':
