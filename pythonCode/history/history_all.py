@@ -45,23 +45,23 @@ def history(account):
 if __name__ == '__main__':
     accouts= get_accounts()
     
-    # file = open('report.txt', "w")
+    file = open('report.txt', "w")
     for account in accouts:        
         print("계정 : ", account)
-        # file.write("계정 : {0}".format(account))
+        file.write("계정 : {0}".format(account))
         
         history_list= history(account)
         
         if len(history_list) == 0:
             print("\t 기록된 이력이 없음")
-            # file.write("\t 기록된 이력이 없음")
-            # file.write("\n")
+            file.write("\t 기록된 이력이 없음")
+            file.write("\n")
         for h in history_list:
             print( "\t %s \t %s" % h)
-            # file.write("\t {0} \t {1}".format(h[0], h[1]))
-            # file.write("\n")
+            file.write("\t {0} \t {1}".format(h[0], h[1]))
+            file.write("\n")
         print("-" * 70)
             # file.write("-"* 70)
             # file.write("\n")
-    # file.close()
+    file.close()
             
